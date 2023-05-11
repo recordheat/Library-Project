@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Library Project</title>
+</head>
+<body>
+
+<h1>Library Project</h1>
+
+<div id = "newBtn">
+
+  <button id = "new-book-button">Add new book</button>      
+
+</div>
+
+
+<div id ="popUpCard">
+    <form id = 'form' action="">
+
+        <h2>New Book</h2>
+
+        <div class = "text-input">
+
+            <input type="text" id="title" name = "title" placeholder="Title">
+            <input type="text" id="author" name = "author" placeholder="Author">
+            <input type="number" id="pages" name = "pages" placeholder="Pages">
+
+        </div>
+
+        <div id ="checkbox">
+
+            <label>Read:</label>
+            <input type="checkbox" id="read" name="read" value="yes">
+
+           </div>
+
+           <button type="submit" form="form" id='addBtn'>Add</button>
+
+    </form>
+
+
+</div>
+
+
+<div id="booksArrays">
+
+
+
+</div>
+
+    
+</body>
+
+<script src="script.js"></script>
+
+</html>
