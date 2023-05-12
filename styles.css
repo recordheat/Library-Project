@@ -25,6 +25,7 @@ h1 {
     justify-content: center;
     border-radius: 8px;
     border-style: solid;
+    display: none;
 }
 
 #form {
@@ -58,4 +59,17 @@ h1 {
 
 #addBtn {
     font-size: 16px;
+}
+
+.book {
+    display: flex;
+    flex-direction: column;
+  align-items: center;
+  border: 5px solid black;
+  border-radius: 25px;
+  height: 300px;
+  width: 250px;
+  padding: 15px;
+  margin: 20px;
+  background-color: #fbd082;
 }
