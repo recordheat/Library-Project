@@ -1,9 +1,11 @@
 // Event listeners for adding book, new book to the page, and closing the pop up card
+
 const addBtn = document.querySelector('#addBtn');
 addBtn.addEventListener('click', addBookToLibrary);
 
 const newBookBtn = document.querySelector('#new-book-button');
-newBookBtn.addEventListener('click', () => popUpForm.style.display = 'flex');
+newBookBtn.addEventListener('click', () => {
+ popUpForm.style.display = 'flex'});
 
 const popUpForm = document.getElementById('popUpCard');
 
@@ -41,9 +43,9 @@ function addBookToLibrary () {
  
 function renderBooks () {
 
+    const display = document.getElementById('booksArray');
     const books = document.querySelectorAll('.book');
-    books.forEach(book => book.remove()); // remove existing books from the DOM
-    console.log(books)
+    books.forEach(book => display.removeChild(book)); 
     for (let i=0; i<libraryOfBooks.length; i++){
         createBook(libraryOfBooks[i]); // create and append new book elements to the DOM
     }
@@ -51,14 +53,16 @@ function renderBooks () {
 //creats book DOM elements, to use in renderBooks();
 
 function createBook(item) {
-    const booksArray = document.getElementById('booksArray');
+    const library = document.querySelector('#booksArray');
     const bookDiv = document.createElement('div');
     const titleDiv = document.createElement('div');
     const authorDiv = document.createElement('div');
     const pagesDiv = document.createElement('div');
     const readButton = document.createElement('button');
-    const removeButton = document.createElement('button')
-    
+    const removeButton = document.createElement('button');
+
+    console.log(library)
+
     bookDiv.classList.add('book');
    
     titleDiv.textContent = item.title;
@@ -87,6 +91,17 @@ function createBook(item) {
     removeButton.setAttribute('id', 'removeBtn');
     bookDiv.appendChild(removeButton);
 
+    library.appendChild(bookDiv);
+
+    readButton.addEventListener('click', () => { 
+        item.read = !item.read;
+        renderBooks();
+    });
+
+    removeButton.addEventListener('click', () => {
+    libraryOfBooks.splice(libraryOfBooks.indexOf(item),1);
+    renderBooks();
+    });
 }
 
 
