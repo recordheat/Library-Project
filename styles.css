@@ -79,3 +79,9 @@ h1 {
     padding: 12px;
     border-radius: 8px;
 }
+
+@media screen and (max-width: 600px) {
+    #popUpCard {
+        margin-left: 5%;
+    }
+}

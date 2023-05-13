@@ -1,5 +1,4 @@
 // Event listeners for adding book, new book to the page, and closing the pop up card
-
 const addBtn = document.querySelector('#addBtn');
 addBtn.addEventListener('click', addBookToLibrary);
 
@@ -37,7 +36,7 @@ function addBookToLibrary () {
     newBook = new Book(title, author, pages, read);
     libraryOfBooks.push(newBook);
     renderBooks();
-    form.reset();
+    
 
 }
  
@@ -50,6 +49,7 @@ function renderBooks () {
         createBook(libraryOfBooks[i]); // create and append new book elements to the DOM
     }
 }
+
 //creats book DOM elements, to use in renderBooks();
 
 function createBook(item) {
@@ -61,7 +61,6 @@ function createBook(item) {
     const readButton = document.createElement('button');
     const removeButton = document.createElement('button');
 
-    console.log(library)
 
     bookDiv.classList.add('book');
    
@@ -102,6 +101,24 @@ function createBook(item) {
     libraryOfBooks.splice(libraryOfBooks.indexOf(item),1);
     renderBooks();
     });
+
+// Event listeners for DOM card
+removeButton.addEventListener('mouseover', () => {
+    removeButton.style.backgroundColor = 'red';
+});
+
+removeButton.addEventListener('mouseout', () => {
+    removeButton.style.backgroundColor = 'white';
+});
+
+bookDiv.addEventListener('mouseover', () => {
+    bookDiv.style.backgroundColor = 'white';
+});
+
+bookDiv.addEventListener('mouseout', () => {
+    bookDiv.style.backgroundColor = '#fca400';
+});
+
 }
 
 
